@@ -1,3 +1,18 @@
+header h1 {
+    padding-right: 15em;
+}
+
+
 .search-container {
     margin-left: 0;
+}
+
+
+
+
+
+
+#main-display p {
+    padding-top:1rem;
+
 }
