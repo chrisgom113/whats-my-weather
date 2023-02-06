@@ -8,6 +8,7 @@ var mainDisplayEl = $('#display-column');
 var tempDisplayEl = $('#temp');
 var windDisplayEl = $('#wind');
 var humidityDisplayEl = $('#humidity');
+var currentWeatherIcon = $('#current-icon');
 var cityId;
 
 //state vars
@@ -33,6 +34,9 @@ function fetchWeatherData(cityRequested) {
             console.log(data);
             mainDisplayEl.removeClass("d-none");
             cityDateDisplayEl.text(data.name + ' (' + currentDate + ')');
+            var weatherIcon = data.weather[0].icon;
+            currentWeatherIcon.attr('src', 'https://openweathermap.org/img/wn/' + weatherIcon + '@2x.png');
+            currentWeatherIcon.attr('alt', data.weather[0].description);
             tempDisplayEl.text('Temp: ' + data.main.temp + ' \u2109');
             windDisplayEl.text('Wind: ' + data.wind.speed + ' MPH');
             humidityDisplayEl.text('Humidity: ' + data.main.humidity + ' %');
@@ -57,6 +61,10 @@ function fetchWeatherData(cityRequested) {
                         forecastDateEl.innerHTML = forecastMonth + '/' + forecastDay + '/' + forecastYear;
                         fiveDayEls[i].append(forecastDateEl);
 
+                        var forecastWeatherIcon = document.createElement('img');
+                        forecastWeatherIcon.setAttribute('src', 'https://openweathermap.org/img/wn/' + data.list[forecastLoop].weather[0].icon + '@2x.png');
+                        forecastWeatherIcon.setAttribute('alt', data.list[forecastLoop].weather[0].description);
+                        fiveDayEls[i].append(forecastWeatherIcon);
                     }
                 })
 
