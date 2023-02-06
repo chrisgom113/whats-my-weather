@@ -4,9 +4,15 @@ header h1 {
 
 
 
-
+.history-button:hover {
+cursor: pointer;
+}
 
 #main-display p {
     padding-top:1rem;
 
 }
+
+/* #day {
+    border: 2px solid;
+} */

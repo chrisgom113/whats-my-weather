@@ -18,8 +18,8 @@ function init() {
     var APIKey = 'c29c595fed34bd03d71c486c172a3363';
 
     //Functions
-    function fetchWeatherData(cityRequested) {
-        var requestURLCurrent = 'https://api.openweathermap.org/data/2.5/weather?q=' + cityRequested + '&appid=' + APIKey + '&units=imperial';
+    function fetchWeatherData(city) {
+        var requestURLCurrent = 'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + APIKey + '&units=imperial';
 
         fetch(requestURLCurrent)
             .then(function (response) {
@@ -36,7 +36,7 @@ function init() {
                 tempDisplayEl.text('Temp: ' + data.main.temp + ' \u2109');
                 windDisplayEl.text('Wind: ' + data.wind.speed + ' MPH');
                 humidityDisplayEl.text('Humidity: ' + data.main.humidity + ' %');
-                
+
                 cityId = data.id;
 
                 fetch('https://api.openweathermap.org/data/2.5/forecast?id=' + cityId + '&appid=' + APIKey + '&units=imperial')
@@ -100,17 +100,18 @@ function init() {
     function renderSearchHistory() {
         searchHistoryEl.innerHTML = '';
         for (var i = 0; i < historyStorage.length; i++) {
-            var searchHit = document.createElement('input');
+            const searchHit = document.createElement('input');
             searchHit.setAttribute("type", "text");
             searchHit.setAttribute("readonly", true);
-            searchHit.setAttribute("class", "form-control bg-white border-danger-subtle");
+            searchHit.setAttribute("class", "form-control bg-white border-secondary text-center history-button");
             searchHit.setAttribute("value", historyStorage[i]);
-            searchHit.addEventListener("click", function () {
+            searchHit.addEventListener("click", function() {
                 fetchWeatherData(searchHit.value);
-            })
+            }) 
             searchHistoryEl.append(searchHit);
 
         }
+
     }
 
     renderSearchHistory();
