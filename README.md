@@ -16,11 +16,16 @@ User acceses web app using the following URL: https://chrisgom113.github.io/what
 
 User can enter city name into the search box to see current weather data and 5-day forecast. They will also see their search added to a search history column
 
+![](./assets/images/initial_search.gif)
 
 On page refresh, recent search data persists on the page
 
+![](./assets/images/page_refresh.gif)
+
 
 User can click on a recent search to the same data appear again
+
+![](./assets/images/click_recent.gif)
 
 
 ## Features
