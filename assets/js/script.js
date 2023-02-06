@@ -94,6 +94,7 @@ function init() {
     clearBtn.addEventListener('click', function () {
         localStorage.clear();
         historyStorage = [];
+        renderSearchHistory();
     })
 
     function renderSearchHistory() {
@@ -102,7 +103,7 @@ function init() {
             var searchHit = document.createElement('input');
             searchHit.setAttribute("type", "text");
             searchHit.setAttribute("readonly", true);
-            searchHit.setAttribute("class", "form-control d-block bg-white");
+            searchHit.setAttribute("class", "form-control bg-white border-danger-subtle");
             searchHit.setAttribute("value", historyStorage[i]);
             searchHit.addEventListener("click", function () {
                 fetchWeatherData(searchHit.value);
