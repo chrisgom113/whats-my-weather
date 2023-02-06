@@ -105,9 +105,9 @@ function init() {
             searchHit.setAttribute("readonly", true);
             searchHit.setAttribute("class", "form-control bg-white border-secondary text-center history-button");
             searchHit.setAttribute("value", historyStorage[i]);
-            searchHit.addEventListener("click", function() {
+            searchHit.addEventListener("click", function () {
                 fetchWeatherData(searchHit.value);
-            }) 
+            })
             searchHistoryEl.append(searchHit);
 
         }
