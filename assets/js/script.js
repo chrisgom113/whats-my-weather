@@ -65,6 +65,18 @@ function fetchWeatherData(cityRequested) {
                         forecastWeatherIcon.setAttribute('src', 'https://openweathermap.org/img/wn/' + data.list[forecastLoop].weather[0].icon + '@2x.png');
                         forecastWeatherIcon.setAttribute('alt', data.list[forecastLoop].weather[0].description);
                         fiveDayEls[i].append(forecastWeatherIcon);
+
+                        var forecastTemp = document.createElement('p');
+                        forecastTemp.innerHTML = 'Temp: ' + data.list[forecastLoop].main.temp + ' \u2109';
+                        fiveDayEls[i].append(forecastTemp);
+
+                        var forecastWind = document.createElement('p');
+                        forecastWind.innerHTML = 'Wind: ' + data.list[forecastLoop].wind.speed + ' MPH';
+                        fiveDayEls[i].append(forecastWind);
+
+                        var forecastHumidity = document.createElement('p');
+                        forecastHumidity.innerHTML = 'Humidity: ' + data.list[forecastLoop].main.humidity + ' %';
+                        fiveDayEls[i].append(forecastHumidity);
                     }
                 })
 
