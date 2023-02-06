@@ -103,7 +103,7 @@ function init() {
             const searchHit = document.createElement('input');
             searchHit.setAttribute("type", "text");
             searchHit.setAttribute("readonly", true);
-            searchHit.setAttribute("class", "form-control bg-white border-secondary text-center history-button");
+            searchHit.setAttribute("class", "form-control bg-primary-subtle border-primary-subtle text-center history-button");
             searchHit.setAttribute("value", historyStorage[i]);
             searchHit.addEventListener("click", function () {
                 fetchWeatherData(searchHit.value);
