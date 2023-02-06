@@ -21,9 +21,10 @@ searchBtnEl.addEventListener('click', fetchWeatherData);
 //Fetch Weather Data
 function fetchWeatherData(cityRequested) {
     var cityRequested = cityInputEl.val();
-    var requestURL = 'https://api.openweathermap.org/data/2.5/weather?q=' + cityRequested + '&appid=' + APIKey + '&units=imperial';
+    var requestURLCurrent = 'https://api.openweathermap.org/data/2.5/weather?q=' + cityRequested + '&appid=' + APIKey + '&units=imperial';
+    var requestURLFiveDay = 'https://api.openweathermap.org/data/2.5/forecast?q=' + cityRequested + '&appid=' + APIKey + '&units=imperial';
 
-    fetch(requestURL)
+    fetch(requestURLCurrent)
         .then(function (response) {
             return response.json();
         })
@@ -35,6 +36,16 @@ function fetchWeatherData(cityRequested) {
             windDisplayEl.text('Wind: ' + data.wind.speed + ' MPH');
             humidityDisplayEl.text('Humidity: ' + data.main.humidity + ' %');
 
+
+
+        })
+
+    fetch(requestURLFiveDay)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            console.log(data);
         })
 }
 
