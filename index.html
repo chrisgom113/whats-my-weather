@@ -19,17 +19,16 @@
     <main>
         <div class="row container px-0">
             <div class="col align-items-start d-inline-flex">
-                <div id="search-column" class="col pb-4 border-bottom col-lg-4">
+                <div id="search-column" class="col pb-4 col-lg-4">
                     <div class="mb-3">
-                        <label for="formGroupExampleInput" class="form-label fs-3 fw-bold">Search for a city:</label>
-                        <input type="text" class="form-control" id="city-input" placeholder="Riverside">
+                        <label for="city-input" class="form-label fs-3 fw-bold">Search for a city:</label>
+                        <input type="text" class="form-control" id="city-input" placeholder="Enter city name">
                     </div>
-                    <div class="d-grid gap-2 col-lg-12">
-                        <button id="search-btn" class="btn btn-primary" type="button">Search</button>
+                    <div class="d-grid gap-2 col-lg-12 border-bottom mb-3">
+                        <button id="search-btn" class="btn btn-primary mb-3 " type="button">Search</button>
                     </div>
-                    <div id="recent-searches-container">
-                        <!-- search history buttons-->
-                    </div>
+                    <button class="btn btn-primary mb-3" type="button" id="clear-history">Clear history</button>
+                    <form id="recent-search-container"></form>
                 </div>
                 <div id="display-column" class="col col-lg-10 ms-3 mt-1 px-2 d-none">
                     <section id="main-display" class="border border-dark px-2 mb-3">
